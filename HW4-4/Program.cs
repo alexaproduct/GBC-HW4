@@ -21,11 +21,22 @@ void FillMas (int[] arr)
 }
 
 Console.Write("Введите размерность массива: ");
-int k = int.Parse(Console.ReadLine()?? "");
-int[] arr = new int[k];
+var k = int.Parse(Console.ReadLine()?? "");
+var arr = new int[k];
 FillMas(arr);
 PrintMas(arr);
 
+for (int i = 0; i < arr.Length; i++)
+{
+    if (arr[i] == 20)
+    {
+        arr[i] = 200;
+        break;
+    }
+}
+PrintMas(arr);
+
+/*
 int imin = 0;
 
 int maxdelta = 0;
@@ -57,3 +68,4 @@ else
         Console.Write(arr[i] + " ");
     }
 }
+*/
