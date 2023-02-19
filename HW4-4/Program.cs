@@ -6,7 +6,7 @@ void FillMas (int[] arr)
 {
     for (int i = 0; i < arr.Length; i++)
     {
-        int num = new Random().Next(19, 22);
+        int num = new Random().Next(10, 22);
         arr[i] = num;
     }
 }
@@ -26,10 +26,34 @@ int[] arr = new int[k];
 FillMas(arr);
 PrintMas(arr);
 
-for (int i = 0; i < arr.Length-1; i++)
-{
-    if (arr[i] == 20) arr[i] = arr[i]+180;
-    arr[i] = arr [i];
-    Console.Write(arr[i] + " ");
-}
+int imin = 0;
 
+int maxdelta = 0;
+
+int count = 0;
+
+for (int i = 0; i < arr.Length; i++)
+{
+   if (arr[i] == 20)
+   {
+    count = count + 1;
+    int ifirst = i;
+    if (i > ifirst) i = i;
+    Console.WriteLine(ifirst);
+    Console.WriteLine(arr[ifirst]);
+    if (arr.Length - ifirst > maxdelta) maxdelta = arr.Length - ifirst;
+   }
+}
+if (count == 0) Console.WriteLine ("Нет 20 в массиве");
+else
+{
+    Console.WriteLine();
+    Console.WriteLine(maxdelta);
+    int ifirst20 = arr.Length - maxdelta;
+    Console.WriteLine();
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[ifirst20] = 200;
+        Console.Write(arr[i] + " ");
+    }
+}
